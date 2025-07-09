@@ -1,0 +1,65 @@
+Objective: install and set up SASS
+
+Instructions:
+
+Inside the alx-intermediate-frontend repository, create a new directory called 0x03-sass_scss
+
+Linux installation (Optional)
+In your ubuntu terminal install node version 20.16 as follows:
+$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+Exit the terminal using the exit command then reopen it.
+Installation Anywhere (Optional)
+Install SASS by using the following command if you have node installed:
+npm install sass -v 3.7.4
+
+❗️Problem
+You're trying to install:
+```bash
+npm install -g sass@3.7.4
+```
+But SASS version 3.7.4 does not exist in the npm registry.
+
+That version refers to the Ruby Sass, which is now deprecated. The official and current maintained version is Dart Sass, distributed on npm under the sass package — and its versions start from around 1.x, not 3.x.
+
+✅ Fix
+You should install a valid version of Dart Sass. You can use the earliest available version if you want something older — e.g., 1.32.0.
+
+Let’s use sass@1.32.0 for compatibility with older setups.
+
+#using docker
+1. 🗂 Create a working directory
+```bash
+mkdir sass-ubuntu
+cd sass-ubuntu
+```
+2. 📝 Create a Dockerfile
+```bash
+# Dockerfile
+FROM ubuntu:20.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install dependencies
+RUN apt-get update && apt-get install -y curl git bash nano
+
+# Install nvm (Node Version Manager)
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+# Add nvm to environment
+ENV NVM_DIR /root/.nvm
+RUN bash -c "source $NVM_DIR/nvm.sh && \
+             nvm install 20.16.0 && \
+             nvm use 20.16.0 && \
+             npm install -g sass@3.7.4 && \
+             echo 'Step 1: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash' >> /root/0-installation-script && \
+             echo 'Step 2: exit and reopen the terminal' >> /root/0-installation-script && \
+             echo 'Step 3: nvm install 20.16.0' >> /root/0-installation-script && \
+             echo 'Step 4: npm install sass -v 3.7.4' >> /root/0-installation-script"
+
+CMD ["/bin/bash"]
+
+```
+
+```bash
+mkdir sass-ubuntu
+cd sass-ubuntu
