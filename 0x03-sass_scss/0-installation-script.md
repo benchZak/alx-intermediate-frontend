@@ -34,5 +34,13 @@ CMD ["/bin/bash"]
 ```
 
 ```bash
-mkdir sass-ubuntu
-cd sass-ubuntu
+docker build -t sass-ubuntu .
+docker run -it --name sass-container sass-ubuntu
+```
+```bash
+sass --version
+```
+You should see:
+```bash
+1.32.0 compiled with dart2js 2.x.x
+```
