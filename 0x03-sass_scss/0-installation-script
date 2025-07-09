@@ -26,12 +26,16 @@ You should install a valid version of Dart Sass. You can use the earliest availa
 
 Let’s use sass@1.32.0 for compatibility with older setups.
 
+Please see the temporary installation solution by 0-installation-script.md
+#using Docker 
+
 #using docker
 1. 🗂 Create a working directory
 ```bash
 mkdir sass-ubuntu
 cd sass-ubuntu
 ```
+
 2. 📝 Create a Dockerfile
 ```bash
 # Dockerfile
