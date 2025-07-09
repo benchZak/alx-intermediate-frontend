@@ -1,0 +1,11 @@
+// 1-color_variable.scss
+
+$main-color: #3D3D3D;
+
+body {
+  color: $main-color;
+}
+
+p {
+  color: $main-color;
+}
