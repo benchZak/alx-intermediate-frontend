@@ -28,7 +28,7 @@ Let’s use sass@1.32.0 for compatibility with older setups.
 
 Please see the temporary installation solution by 
 
-[Installation Script](./0-installation-script.md)
+[Installation Script](./0-installation-script.md?raw=true)
 
 #using Docker 
 
